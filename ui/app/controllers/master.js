@@ -9,10 +9,6 @@ define(
         // available in all the scopes
         $scope.page = path.page;
 
-        $scope.navClass = function (slug) {
-          return path.page(slug) === $location.path() ? 'active' : '';
-        };
-
         $scope.ajaxInWorks = ajax.inWorks;
 
         var loadLogin = function () {

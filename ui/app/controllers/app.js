@@ -3,14 +3,17 @@ define(function () {
     '$scope', '$location', '$route', 'auth', 'path',
     function ($scope, $location, $route, auth, path) {
 
-      var setup = function () {
-        $scope.headerTmpl = $route.current.headerTmpl;
+      $scope.setup = function () {
         $scope.panelTmpl  = $route.current.panelTmpl;
       };
 
-      setup();
+      $scope.navClass = function (slug) {
+        return path.page(slug) === $location.path() ? 'active' : '';
+      };
 
-      $scope.$on('$routeChangeSuccess', setup);
+      $scope.setup();
+
+      $scope.$on('$routeChangeSuccess', $scope.setup);
     }
   ];
 })
