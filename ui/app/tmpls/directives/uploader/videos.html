@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-12">
+    
+    <div class="row">
+      
+      <div class="col-md-4">
+        <input
+          class="form-control" type="text" paste-only placeholder="Paste Youtube Channel or Video URL"
+          ng-model="youtube.url" ng-change="uploader.processYoutubeUrl(youtubeUrl)"
+        >
+        <span class="help-block">{{errors.msg('youtube')}}</span>
+        <button class="btn btn-primary btn-xs" ng-click="uploader.fetchVideos()">Fetch</button>
+      </div>
+      <div class="col-md-2">
+        <label>{{uploader.videos.length}} Videos</label>    
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-success" ng-show="uploader.videos.length > 0" ng-click="uploader.run()">Upload</button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-danger" ng-show="uploader.videos.length > 0" ng-click="uploader.clear()">Clear</button>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div scroller height="400">
+          <ul class="list-inline">
+            <li ng-repeat="video in uploader.videos" class="thumb">
+              <div class="removeable" box="150">
+                <div class="photo-holder" box="150,120">
+                  <img src="{{video.snippet.thumbnails.medium.url}}" box="150,120" ng-click="youtubePlayer.playVideo(uploader.getVideoId(video))">
+                </div>
+                <button class="btn btn-xs btn-danger remover" ng-click="uploader.removeVideo(video)">x</button>
+                <span ng-switch="video.status" class="status">
+                  <span ng-switch-when="queued" class="label label-info">{{video.status}}</span>
+                  <span ng-switch-when="uploading" class="label label-warning">{{video.status}}</span>
+                  <span ng-switch-when="done" class="label label-success">{{video.status}}</span>
+                  <span ng-switch-when="failed" class="label label-danger">{{video.status}}</span>
+                  <span ng-switch-when="playing" class="label label-primary">{{video.status}}</span>
+                </span>
+
+                <h6><small>{{video.snippet.title}}</small></h6>
+                <hr>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <button ng-show="uploader.activeChannel.nextPageToken != null" class="btn btn-sm btn-warning" ng-click="uploader.loadMore()">
+          Load More From Channel ({{uploader.activeChannel.total - uploader.videos.length}} More)
+        </button>
+
+      </div>
+
+      <div class="col-md-6">
+        <youtube-video-container></youtube-video-container>
+      </div>
+    </div>
+
+  </div>
+</div>

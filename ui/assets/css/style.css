@@ -1,0 +1,33 @@
+.preview-box {
+  position: relative;
+}
+
+.preview-box .preview-container {
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  overflow: hidden;
+  background: #fff;
+  z-index: 999;
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+}
+
+.preview-box .preview-container.open {
+  box-shadow: 0px 0px 1px #000;
+  overflow: auto;
+}
+
+#in-works-marker {
+  text-align: center;
+  width: 200px;
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  margin-left: -100px
+}
+
+#app ul.list-inline>li {
+  margin: 5px;
+}

@@ -1,0 +1,25 @@
+<div class="row" ng-controller="app.widgetTagsCtrl">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-10">
+        <h2>Widget Tags</h2>
+      </div>
+      <div class="col-md-2">
+        <a class="btn btn-primary" href="{{page('widget-tags/new')}}">+ New</a>
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="w in collection">
+        <td>{{w.id}}</td>
+        <td>{{w.name}}</td>
+        <td><a href="{{page('widget-tags/'+w.id+'/edit')}}" class="btn btn-primary btn-sm">Edit</a></td>
+      </tr>
+    </table>
+  </div>
+</div>

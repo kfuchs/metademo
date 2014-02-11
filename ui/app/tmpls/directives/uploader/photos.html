@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-md-12">
+    
+    <div class="row">
+      
+      <div class="col-md-2">
+        <div class="row">
+          <div class="col-md-11">
+            <form>
+              <input
+                type="file" class="form-control input-sm" multiple ng-model="photos"
+                onchange="angular.element(this).scope().uploader.processFiles(this)"
+                accept="image/*"
+              >
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3">
+        <label>{{uploader.photos.length}} Files</label>    
+      </div>
+
+      <div class="col-md-3">
+        <button class="btn btn-success" ng-show="uploader.photos.length > 0" ng-click="uploader.run()">Upload</button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-danger" ng-show="uploader.photos.length > 0" ng-click="uploader.clear()">Clear</button>
+      </div>
+    
+    </div>
+
+    <hr> 
+
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="list-inline">
+          <li ng-repeat="photo in uploader.photos">
+            <div class="removeable">
+              <photo-holder src="{{photo.src}}" box="150"></photo-holder>
+              <button class="btn btn-xs btn-danger remover" ng-click="uploader.removePhoto(photo)">x</button>
+              <span ng-switch="photo.status" class="status">
+                <span ng-switch-when="queued" class="label label-info">{{photo.status}}</span>
+                <span ng-switch-when="uploading" class="label label-warning">{{photo.status}}</span>
+                <span ng-switch-when="done" class="label label-success">{{photo.status}}</span>
+                <span ng-switch-when="failed" class="label label-error">{{photo.status}}</span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

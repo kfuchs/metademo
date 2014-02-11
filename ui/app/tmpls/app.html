@@ -1,0 +1,32 @@
+<in-works-marker ng-show="ajaxInWorks()"></in-works-marker>
+
+<div class="container" ng-controller="appCtrl">
+  
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Meta Demo</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li class="{{navClass('home')}}"><a href="{{page('home')}}">Home</a></li>
+        <li class="{{navClass('widget-tags')}}"><a href="{{page('widget-tags')}}">Widget Tags</a></li>
+        <li class="{{navClass('manufacturers')}}"><a href="{{page('manufacturers')}}">Manufacturers</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
+  
+  <div class="row">
+    <div class="col-md-12" ng-include="panelTmpl">
+    </div>
+  </div>
+
+</div>

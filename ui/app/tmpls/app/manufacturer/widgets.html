@@ -1,0 +1,29 @@
+<div class="row" ng-controller="app.manufacturer.widgetsCtrl">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-10">
+        <h2>Widgets</h2>
+      </div>
+      <div class="col-md-2">
+        <a class="btn btn-primary" href="{{page('manufacturers/'+manufacturer.id+'/widgets/new')}}">+ New</a>
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>photo</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="m in collection">
+        <td>{{m.id}}</td>
+        <td>{{m.name}}</td>
+        <td><img src="{{m.photo}}" box="100,100"></td>
+        <td>
+          <a href="{{page('manufacturers/'+manufacturer.id+'/widgets/'+m.id+'/edit')}}" class="btn btn-primary btn-sm">Edit</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

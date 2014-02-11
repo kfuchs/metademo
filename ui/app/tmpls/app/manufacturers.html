@@ -1,0 +1,30 @@
+<div class="row" ng-controller="app.manufacturersCtrl">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-10">
+        <h2>Manufacturers</h2>
+      </div>
+      <div class="col-md-2">
+        <a class="btn btn-primary" href="{{page('manufacturers/new')}}">+ New</a>
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>about</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="m in collection">
+        <td>{{m.id}}</td>
+        <td>{{m.name}}</td>
+        <td>{{m.about}}</td>
+        <td>
+          <a href="{{page('manufacturers/'+m.id+'/edit')}}" class="btn btn-primary btn-sm">Edit</a>
+          <a href="{{page('manufacturers/'+m.id+'/widgets')}}" class="btn btn-primary btn-sm">Widgets</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

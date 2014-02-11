@@ -1,0 +1,20 @@
+{
+  "name": "k/reposed",
+  "description": "Advanced functionality over eloquent",
+  "version": "0.0.1",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kapil",
+      "email": "kapv89@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5.6",
+    "illuminate/database": "4.1.*"
+  },
+  "autoload": {
+    "psr-0": { "k": "src/" }
+  }
+}

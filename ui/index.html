@@ -1,0 +1,26 @@
+<html ng-controller="masterCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Meta Demo</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.yeti.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/simple-sidebar.css">
+  
+  <script src="/assets/js/require.js"></script>
+  <script>
+    require.config({
+      paths: {
+        //main: "/app.built"
+        main: "/app/main"
+      }
+    })
+    require(['main']);
+  </script>
+</head>
+
+<body ng-include="bodyTmpl" id="app">
+    
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<div class="row" ng-controller="app.widgetTag.newCtrl">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>New Widget Tag</h3>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Details</h3>
+        
+        <form role="form" class="{{notif.class}}">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" ng-model="model.name">
+            <span class="help-block">{{errors.msg('name')}}</span>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" ng-click="save()">Save</button>
+            <a href="{{page('widget-tags')}}" class="btn btn-danger">Back</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
